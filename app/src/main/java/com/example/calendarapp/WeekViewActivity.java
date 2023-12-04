@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     private TextView month_header_tv;
     private TextView year_header_tv;
     private RecyclerView calendar_rv;
+    private ListView event_list_lv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         calendar_rv = findViewById(R.id.calendar_RV);
         month_header_tv = findViewById(R.id.month_header_TV);
         year_header_tv = findViewById(R.id.year_header_TV);
-
+        event_list_lv = findViewById(R.id.event_list_LV);
     }
 
     private void setupCalendar() {
@@ -47,7 +50,7 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7); //7 columns
         calendar_rv.setLayoutManager(layoutManager);
         calendar_rv.setAdapter(calendarAdapter);
-
+        setEventAdapter();
     }
 
     public void prevWeekAction(View view) {
@@ -61,13 +64,26 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
     }
 
     public void newEventAction(View view) {
+        startActivity(new Intent(getApplicationContext(), EventEditActivity.class));
     }
 
     @Override
     public void onItemClick(int position, LocalDate date) {
-        String message = "Selected date: " + date;
-        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        //String message = "Selected date: " + date;
+        //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
         CalendarUtils.selected_date = date;
         setupCalendar();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setEventAdapter();
+    }
+
+    private void setEventAdapter() {
+        ArrayList<Event> events = Event.eventsForDate(CalendarUtils.selected_date);
+        EventAdapter adapter = new EventAdapter(getApplicationContext(), events);
+        event_list_lv.setAdapter(adapter);
     }
 }

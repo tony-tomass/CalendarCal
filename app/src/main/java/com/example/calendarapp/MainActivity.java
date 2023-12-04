@@ -59,8 +59,8 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     public void onItemClick(int position, LocalDate date) {
         if (date != null)
         {
-            String message = "Selected date: " + date;
-            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            //String message = "Selected date: " + date;
+            //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             CalendarUtils.selected_date = date;
             setupCalendar();
         }

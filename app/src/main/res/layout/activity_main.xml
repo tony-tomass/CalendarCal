@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        
+        <Button
+            android:id="@+id/prev_month_BT"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/back"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:background="@null"
+            android:onClick="prevMonthAction"
+            />
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/year_header_TV"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="2099"
+                android:textSize="18dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/month_header_TV"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="SEPTEMBER"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/next_month_BT"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/forward"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:background="@null"
+            android:onClick="nextMonthAction"
+            />
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            style="@style/day_title_text"
+            android:text="SUN"
+            />
+        <TextView
+            style="@style/day_title_text"
+            android:text="MON"
+            />
+        <TextView
+            style="@style/day_title_text"
+            android:text="TUE"
+            />
+        <TextView
+            style="@style/day_title_text"
+            android:text="WED"
+            />
+        <TextView
+            style="@style/day_title_text"
+            android:text="THU"
+            />
+        <TextView
+            style="@style/day_title_text"
+            android:text="FRI"
+            />
+        <TextView
+            style="@style/day_title_text"
+            android:text="SAT"
+            />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calendar_RV"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        />
+
+</LinearLayout>

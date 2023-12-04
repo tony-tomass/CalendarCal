@@ -52,14 +52,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
                 holder.parent_view.setBackgroundColor(Color.LTGRAY);
             }
         }
-        /*
-        for (int i = 0; i < days.size(); i++) {
-            if (days.get(i).getMonth() != CalendarUtils.selected_date.getMonth()) {
-                holder.parent_view.
-            }
-        }
-
-         */
     }
 
     @Override

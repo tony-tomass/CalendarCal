@@ -45,10 +45,21 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
         }
         else {
             holder.day_of_month.setText(String.valueOf(date.getDayOfMonth()));
+            if (date.getMonth() != CalendarUtils.selected_date.getMonth()) {
+                holder.day_of_month.setTextColor(Color.LTGRAY);
+            }
             if (date.equals(CalendarUtils.selected_date)) {
                 holder.parent_view.setBackgroundColor(Color.LTGRAY);
             }
         }
+        /*
+        for (int i = 0; i < days.size(); i++) {
+            if (days.get(i).getMonth() != CalendarUtils.selected_date.getMonth()) {
+                holder.parent_view.
+            }
+        }
+
+         */
     }
 
     @Override

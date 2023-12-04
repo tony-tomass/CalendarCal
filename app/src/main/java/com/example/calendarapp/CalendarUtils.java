@@ -1,5 +1,7 @@
 package com.example.calendarapp;
 
+import android.util.Log;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -19,9 +21,12 @@ public class CalendarUtils {
         int day_of_week = first_of_month.getDayOfWeek().getValue() % 7;   //Gets what day of week first day appears; mod 7 is used b/c without it, a whole row gets skipped if the first day is on Sunday (array starts at 0 but getDayOfWeek starts at 1)
         //Log.i("dayofweek", String.valueOf(day_of_week));
 
-        for (int i = 1; i <= 38; i++) {
+        for (int i = 1; i <= 42; i++) {   //42 from 7 days a week and 6 max rows of weeks for one month
             if (i <= day_of_week || i > days_in_month + day_of_week) {   //If after the first or last day of the month
-                days_in_month_array.add(null);
+                //LocalDate difference = first_of_month.minusDays(day_of_week + 1);
+                LocalDate date = first_of_month.minusDays(day_of_week + 1).plusDays(i);   //Generates the in and out dates
+                //Log.i("date", date.toString());
+                days_in_month_array.add(date);
             }
             else {
                 days_in_month_array.add(LocalDate.of(selected_date.getYear(), selected_date.getMonth(), i - day_of_week));

@@ -3,6 +3,13 @@
     <style name="Base.Theme.CalendarApp" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!--
+        Resources:
+        Status bars: https://developer.android.com/design/ui/mobile/guides/foundations/system-bars
+        Themes and styles: https://developer.android.com/develop/ui/views/theming/themes
+        -->
+        <item name="android:statusBarColor"> @color/blue </item>
+        <item name="android:windowLightStatusBar"> false </item>
     </style>
 
     <style name="Theme.CalendarApp" parent="Base.Theme.CalendarApp" />

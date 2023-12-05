@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Name:"
+        android:text="@string/event_name_title"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -24,8 +24,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="20sp"
+        android:textAlignment="center"
         android:ems="10"
         android:inputType="text"
+        android:autofillHints="name"
+        android:hint="@string/name_of_event"
         />
 
     <TextView
@@ -34,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Date:"
+        android:text="@string/date_title"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -46,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:text="Time:"
+        android:text="@string/time_title"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="@color/black"
@@ -57,10 +60,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="SAVE EVENT"
+        android:text="@string/save_event"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@color/white"
-        android:onClick="saveEventAction"
+        android:background="@null"
         android:layout_gravity="center"
         />
 

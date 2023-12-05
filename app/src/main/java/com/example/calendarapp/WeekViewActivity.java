@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,9 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
 
     private TextView month_header_tv;
     private TextView year_header_tv;
+    private Button next_week_bt;
+    private Button prev_week_bt;
+    private Button add_event_bt;
     private RecyclerView calendar_rv;
     private ListView event_list_lv;
 
@@ -38,7 +42,34 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         calendar_rv = findViewById(R.id.calendar_RV);
         month_header_tv = findViewById(R.id.month_header_TV);
         year_header_tv = findViewById(R.id.year_header_TV);
+        next_week_bt = findViewById(R.id.next_week_BT);
+        prev_week_bt = findViewById(R.id.prev_week_BT);
+        add_event_bt = findViewById(R.id.add_event_BT);
         event_list_lv = findViewById(R.id.event_list_LV);
+        initListeners();
+    }
+
+    private void initListeners() {
+        prev_week_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalendarUtils.selected_date = CalendarUtils.selected_date.minusMonths(1);
+                setupCalendar();
+            }
+        });
+        next_week_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CalendarUtils.selected_date = CalendarUtils.selected_date.plusMonths(1);
+                setupCalendar();
+            }
+        });
+        add_event_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), EventEditActivity.class));
+            }
+        });
     }
 
     private void setupCalendar() {
@@ -51,20 +82,6 @@ public class WeekViewActivity extends AppCompatActivity implements CalendarAdapt
         calendar_rv.setLayoutManager(layoutManager);
         calendar_rv.setAdapter(calendarAdapter);
         setEventAdapter();
-    }
-
-    public void prevWeekAction(View view) {
-        CalendarUtils.selected_date = CalendarUtils.selected_date.minusWeeks(1);
-        setupCalendar();
-    }
-
-    public void nextWeekAction(View view) {
-        CalendarUtils.selected_date = CalendarUtils.selected_date.plusWeeks(1);
-        setupCalendar();
-    }
-
-    public void newEventAction(View view) {
-        startActivity(new Intent(getApplicationContext(), EventEditActivity.class));
     }
 
     @Override

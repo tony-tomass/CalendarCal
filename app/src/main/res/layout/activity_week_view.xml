@@ -14,16 +14,15 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/prev_month_BT"
+            android:id="@+id/prev_week_BT"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/back"
-            android:textColor="@color/blue"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
             android:background="@null"
-            android:onClick="prevWeekAction"
             />
 
         <LinearLayout
@@ -36,7 +35,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="2099"
+                android:text="@string/placeholder"
                 android:textSize="18dp"
                 android:textAlignment="center"
                 android:textColor="@color/black"
@@ -46,7 +45,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="SEPTEMBER"
+                android:text="@string/placeholder"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -55,16 +54,15 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/next_month_BT"
+            android:id="@+id/next_week_BT"
             android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/forward"
-            android:textColor="@color/blue"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="20sp"
             android:background="@null"
-            android:onClick="nextWeekAction"
             />
 
     </LinearLayout>
@@ -76,31 +74,31 @@
 
         <TextView
             style="@style/day_title_text"
-            android:text="SUN"
+            android:text="@string/day_sunday"
             />
         <TextView
             style="@style/day_title_text"
-            android:text="MON"
+            android:text="@string/day_monday"
             />
         <TextView
             style="@style/day_title_text"
-            android:text="TUE"
+            android:text="@string/day_tuesday"
             />
         <TextView
             style="@style/day_title_text"
-            android:text="WED"
+            android:text="@string/day_wednesday"
             />
         <TextView
             style="@style/day_title_text"
-            android:text="THU"
+            android:text="@string/day_thursday"
             />
         <TextView
             style="@style/day_title_text"
-            android:text="FRI"
+            android:text="@string/day_friday"
             />
         <TextView
             style="@style/day_title_text"
-            android:text="SAT"
+            android:text="@string/day_saturday"
             />
 
     </LinearLayout>
@@ -113,15 +111,16 @@
         />
 
     <Button
+        android:id="@+id/add_event_BT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="New Event"
-        android:textColor="@color/blue"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:text="@string/add_new_event"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="20sp"
         android:background="@null"
-        android:onClick="newEventAction"
         />
 
     <ListView

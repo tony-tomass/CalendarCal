@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/blue"
-    tools:context=".MainActivity">
+    tools:context=".FragTestActivity">
 
-    <Button
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fragment Test"
-        android:onClick="fragTestAction"
+        android:text="YOU'RE ON THE FRAGMENT"
+        android:textStyle="bold"
         />
 
     <LinearLayout
@@ -22,7 +22,7 @@
         android:layout_marginTop="20dp"
         android:orientation="horizontal"
         android:background="@color/blue">
-        
+
         <Button
             android:id="@+id/prev_month_BT"
             android:layout_width="40dp"
@@ -74,7 +74,7 @@
             android:textSize="20sp"
             android:background="@null"
             />
-        
+
     </LinearLayout>
 
     <LinearLayout

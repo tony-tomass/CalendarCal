@@ -1,27 +1,24 @@
 package com.example.calendarapp;
 
 import static com.example.calendarapp.CalendarUtils.daysInMonthArray;
-import static com.example.calendarapp.CalendarUtils.monthYearFromDate;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.time.LocalDate;
-import java.time.YearMonth;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 
-public class MainActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener{
+public class FragmentExample extends Fragment implements CalendarAdapter.OnItemListener{
 
     private TextView month_header_tv;
     private TextView year_header_tv;
@@ -29,22 +26,31 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     private Button prev_month_bt;
     private RecyclerView calendar_rv;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        initWidgets();
-        CalendarUtils.selected_date = LocalDate.now();
-        setupCalendar();
+    public FragmentExample() {
+        // Required empty public constructor
     }
 
-    private void initWidgets() {
-        calendar_rv = findViewById(R.id.calendar_RV);
-        month_header_tv = findViewById(R.id.month_header_TV);
-        year_header_tv = findViewById(R.id.year_header_TV);
-        next_month_bt = findViewById(R.id.next_month_BT);
-        prev_month_bt = findViewById(R.id.prev_month_BT);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        CalendarUtils.selected_date = LocalDate.now();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_example, container, false);
+        initWidgets(view);
+        return view;
+    }
+
+    private void initWidgets(View view) {
+        calendar_rv = view.findViewById(R.id.calendar_RV);
+        month_header_tv = view.findViewById(R.id.month_header_TV);
+        year_header_tv = view.findViewById(R.id.year_header_TV);
+        next_month_bt = view.findViewById(R.id.next_month_BT);
+        prev_month_bt = view.findViewById(R.id.prev_month_BT);
         initListeners();
     }
 
@@ -71,30 +77,21 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
         ArrayList<LocalDate> days_in_month = daysInMonthArray(CalendarUtils.selected_date);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(days_in_month, this);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7); //7 columns
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 7); //7 columns
         calendar_rv.setLayoutManager(layoutManager);
         calendar_rv.setAdapter(calendarAdapter);
     }
 
     @Override
     public void onItemClick(int position, LocalDate date) {
-        if (date != null)
-        {
-            //String message = "Selected date: " + date;
-            //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-            CalendarUtils.selected_date = date;
-            startActivity(new Intent(getApplicationContext(), WeekViewActivity.class));
-            setupCalendar();
-        }
+        CalendarUtils.selected_date = date;
+        startActivity(new Intent(getActivity().getApplicationContext(), WeekViewActivity.class));
+        setupCalendar();
     }
 
     @Override
     public void onResume(){
         super.onResume();
         setupCalendar();
-    }
-
-    public void fragTestAction(View view) {
-        startActivity(new Intent(getApplicationContext(), FragTestActivity.class));
     }
 }

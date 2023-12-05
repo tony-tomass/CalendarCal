@@ -1,131 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/blue"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fragment Test"
-        android:onClick="fragTestAction"
-        />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:background="@color/blue">
-        
-        <Button
-            android:id="@+id/prev_month_BT"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/back"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:background="@null"
-            />
-
-        <LinearLayout
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/year_header_TV"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/placeholder"
-                android:textSize="18dp"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                />
-            <TextView
-                android:id="@+id/month_header_TV"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/placeholder"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/next_month_BT"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/forward"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:background="@null"
-            />
-        
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:orientation="horizontal"
-        android:background="@color/blue">
-
-        <TextView
-            style="@style/day_title_text"
-            android:text="@string/day_sunday"
-            />
-        <TextView
-            style="@style/day_title_text"
-            android:text="@string/day_monday"
-            />
-        <TextView
-            style="@style/day_title_text"
-            android:text="@string/day_tuesday"
-            />
-        <TextView
-            style="@style/day_title_text"
-            android:text="@string/day_wednesday"
-            />
-        <TextView
-            style="@style/day_title_text"
-            android:text="@string/day_thursday"
-            />
-        <TextView
-            style="@style/day_title_text"
-            android:text="@string/day_friday"
-            />
-        <TextView
-            style="@style/day_title_text"
-            android:text="@string/day_saturday"
-            />
-
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/calendar_RV"
-        android:layout_width="match_parent"
-        android:layout_height="480dp"
-        android:background="@color/white"
-        />
-
-    <LinearLayout
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:name="com.example.calendarapp.MonthViewFragment"
+        android:layout_weight="1"
         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:background="@color/blue"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder"
+            android:textSize="50sp"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

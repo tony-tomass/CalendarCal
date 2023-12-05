@@ -2,7 +2,6 @@ package com.example.calendarapp;
 
 import static com.example.calendarapp.CalendarUtils.daysInMonthArray;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,7 +18,7 @@ import android.widget.TextView;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class FragmentExample extends Fragment implements CalendarAdapter.OnItemListener{
+public class MonthViewFragment extends Fragment implements CalendarAdapter.OnItemListener{
 
     private TextView month_header_tv;
     private TextView year_header_tv;
@@ -28,7 +27,7 @@ public class FragmentExample extends Fragment implements CalendarAdapter.OnItemL
     private RecyclerView calendar_rv;
     FragmentManager child_frag_manager;
 
-    public FragmentExample() {
+    public MonthViewFragment() {
         // Required empty public constructor
     }
 
@@ -43,7 +42,7 @@ public class FragmentExample extends Fragment implements CalendarAdapter.OnItemL
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_example, container, false);
+        View view = inflater.inflate(R.layout.fragment_month_view, container, false);
         initWidgets(view);
         return view;
     }

@@ -79,4 +79,10 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
     public void weekly_action(View view) {
         startActivity(new Intent(getApplicationContext(), WeekViewActivity.class));
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        setupCalendar();
+    }
 }

@@ -33,7 +33,6 @@ public class CalendarUtils {
                 days_in_month_array.add(LocalDate.of(selected_date.getYear(), selected_date.getMonth(), i - day_of_week));
             }
         }
-
         return days_in_month_array;
     }
 

@@ -2,6 +2,8 @@ package com.example.calendarapp;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +34,7 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
             layoutParams.height = (int) (parent.getHeight() * 0.166666); //Makes each cell 1/6th of the full view
         }
         else {   //For setting up Week view
-            layoutParams.height = (int) parent.getHeight();
+            layoutParams.height = parent.getHeight();
         }
         return new CalendarViewHolder(view, onItemListener, days);
     }
@@ -51,7 +53,55 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
             if (date.equals(CalendarUtils.selected_date)) {
                 holder.parent_view.setBackgroundColor(Color.LTGRAY);
             }
+            if (date.equals(LocalDate.now())) {
+                holder.day_of_month.setTypeface(Typeface.DEFAULT_BOLD);
+            }
         }
+        ArrayList<Event> events = Event.eventsForDate(date);
+        //Log.i("num_of_events", String.valueOf(events.size()));
+        if (events.size() > 0) {
+            if (events.size() == 1) {
+                holder.event_dot_1.setVisibility(View.VISIBLE);
+                holder.event_dot_2.setVisibility(View.INVISIBLE);
+                holder.event_dot_3.setVisibility(View.INVISIBLE);
+            } else if (events.size() == 2) {
+                holder.event_dot_1.setVisibility(View.INVISIBLE);
+                holder.event_dot_2.setVisibility(View.VISIBLE);
+                holder.event_dot_3.setVisibility(View.VISIBLE);
+            }
+            else {
+                holder.event_dot_1.setVisibility(View.VISIBLE);
+                holder.event_dot_2.setVisibility(View.VISIBLE);
+                holder.event_dot_3.setVisibility(View.VISIBLE);
+            }
+            //Need quicker way to do this
+        }
+        else {
+            holder.event_dot_1.setVisibility(View.INVISIBLE);
+            holder.event_dot_2.setVisibility(View.INVISIBLE);
+            holder.event_dot_3.setVisibility(View.INVISIBLE);
+        }
+        /*
+        switch (events.size()) {
+            case (0):
+                holder.event_dot_1.setVisibility(View.INVISIBLE);
+                holder.event_dot_2.setVisibility(View.INVISIBLE);
+                holder.event_dot_3.setVisibility(View.INVISIBLE);
+            case (1):
+                holder.event_dot_1.setVisibility(View.VISIBLE);
+                holder.event_dot_2.setVisibility(View.INVISIBLE);
+                holder.event_dot_3.setVisibility(View.INVISIBLE);
+            case (2):
+                holder.event_dot_1.setVisibility(View.INVISIBLE);
+                holder.event_dot_2.setVisibility(View.VISIBLE);
+                holder.event_dot_3.setVisibility(View.VISIBLE);
+            default:
+                holder.event_dot_1.setVisibility(View.VISIBLE);
+                holder.event_dot_2.setVisibility(View.VISIBLE);
+                holder.event_dot_3.setVisibility(View.VISIBLE);
+        }
+
+         */
     }
 
     @Override

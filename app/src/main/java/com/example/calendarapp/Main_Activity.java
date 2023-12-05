@@ -5,7 +5,9 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+//All about Fragments
+//https://developer.android.com/guide/fragments#getting-started
+public class Main_Activity extends AppCompatActivity {
 
     FragmentManager frag_manager;
 
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         frag_manager = getSupportFragmentManager();
         if (savedInstanceState == null) {
             frag_manager.beginTransaction()
-                    .replace(R.id.fragment_container_view, new MonthViewFragment())
+                    .replace(R.id.fragment_container_view, new MonthView_Fragment())
                     .addToBackStack("cal_month_view")
                     .commit();
         }

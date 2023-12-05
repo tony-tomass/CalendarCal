@@ -18,7 +18,7 @@ import android.widget.TextView;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class MonthViewFragment extends Fragment implements CalendarAdapter.OnItemListener{
+public class MonthView_Fragment extends Fragment implements CalendarAdapter.OnItemListener{
 
     private TextView month_header_tv;
     private TextView year_header_tv;
@@ -27,7 +27,7 @@ public class MonthViewFragment extends Fragment implements CalendarAdapter.OnIte
     private RecyclerView calendar_rv;
     FragmentManager child_frag_manager;
 
-    public MonthViewFragment() {
+    public MonthView_Fragment() {
         // Required empty public constructor
     }
 
@@ -88,7 +88,7 @@ public class MonthViewFragment extends Fragment implements CalendarAdapter.OnIte
     public void onItemClick(int position, LocalDate date) {
         CalendarUtils.selected_date = date;
         //startActivity(new Intent(getActivity().getApplicationContext(), WeekViewActivity.class));
-        WeekViewFragment weekViewFragment = new WeekViewFragment();
+        WeekView_Fragment weekViewFragment = new WeekView_Fragment();
         FragmentManager manager = getActivity().getSupportFragmentManager();
         manager.beginTransaction()
                 .replace(R.id.fragment_container_view, weekViewFragment)

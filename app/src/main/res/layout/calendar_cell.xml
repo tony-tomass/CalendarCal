@@ -20,12 +20,13 @@
         app:layout_constraintVertical_bias="0.25"
         />
 
+    <!--
     <ImageView
         android:id="@+id/event_dot_one_IV"
         android:layout_width="5dp"
         android:layout_height="5dp"
         android:src="@drawable/event_dot"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -40,7 +41,7 @@
         android:layout_height="5dp"
         android:contentDescription="@string/placeholder"
         android:src="@drawable/event_dot"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
@@ -54,13 +55,56 @@
         android:layout_height="5dp"
         android:contentDescription="@string/placeholder"
         android:src="@drawable/event_dot"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cell_day_TV"
         app:layout_constraintVertical_bias="0.2" />
+        -->
+
+    <ImageView
+        android:id="@+id/event_dot_one_IV"
+        android:layout_width="45dp"
+        android:layout_height="3dp"
+        android:src="@drawable/event_dot"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cell_day_TV"
+        app:layout_constraintVertical_bias="0.4"
+        android:contentDescription="@string/placeholder" />
+
+    <ImageView
+        android:id="@+id/event_dot_two_IV"
+        android:layout_width="45dp"
+        android:layout_height="3dp"
+        android:contentDescription="@string/placeholder"
+        android:src="@drawable/event_dot"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cell_day_TV"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <ImageView
+        android:id="@+id/event_dot_three_IV"
+        android:layout_width="45dp"
+        android:layout_height="3dp"
+        android:contentDescription="@string/placeholder"
+        android:src="@drawable/event_dot"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cell_day_TV"
+        app:layout_constraintVertical_bias="0.7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

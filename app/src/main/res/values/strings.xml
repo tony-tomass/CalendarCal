@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CalendarApp</string>
-    <string name="back"><![CDATA[<-]]></string>
-    <string name="forward"><![CDATA[->]]></string>
+    <string name="back"><![CDATA[<<]]></string>
+    <string name="forward"><![CDATA[>>]]></string>
     <string name="day_number">1</string>
     <string name="placeholder">placehold!</string>
 </resources>

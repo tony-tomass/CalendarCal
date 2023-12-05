@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements CalendarAdapter.O
             //String message = "Selected date: " + date;
             //Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
             CalendarUtils.selected_date = date;
+            startActivity(new Intent(getApplicationContext(), WeekViewActivity.class));
             setupCalendar();
         }
     }

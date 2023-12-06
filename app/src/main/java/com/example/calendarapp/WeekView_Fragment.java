@@ -4,6 +4,7 @@ import static com.example.calendarapp.CalendarUtils.daysInWeekArray;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -19,7 +20,9 @@ import android.widget.TextView;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class WeekView_Fragment extends Fragment implements CalendarAdapter.OnItemListener {
+public class WeekView_Fragment extends Fragment
+        implements
+        CalendarAdapter.OnItemListener {
 
     private TextView month_header_tv;
     private TextView year_header_tv;
@@ -115,4 +118,16 @@ public class WeekView_Fragment extends Fragment implements CalendarAdapter.OnIte
         EventAdapter adapter = new EventAdapter(getActivity().getApplicationContext(), events);
         event_list_lv.setAdapter(adapter);
     }
+
+    /*
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog) {
+        //
+    }
+
+    @Override
+    public void onDialogNegativeClick(DialogFragment dialog) {
+        //
+    }
+     */
 }

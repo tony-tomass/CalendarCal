@@ -8,8 +8,9 @@
         Status bars: https://developer.android.com/design/ui/mobile/guides/foundations/system-bars
         Themes and styles: https://developer.android.com/develop/ui/views/theming/themes
         -->
-        <item name="android:statusBarColor"> @color/blue </item>
+        <item name="android:statusBarColor"> @color/theme_primary </item>
         <item name="android:windowLightStatusBar"> false </item>
+        <item name="android:colorPrimary"> @color/theme_primary </item>
     </style>
 
     <style name="Theme.CalendarApp" parent="Base.Theme.CalendarApp" />

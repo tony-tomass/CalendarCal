@@ -13,9 +13,6 @@
         android:theme="@style/Theme.CalendarApp"
         tools:targetApi="31">
         <activity
-            android:name=".EventEditActivity"
-            android:exported="false" />
-        <activity
             android:name=".Main_Activity"
             android:exported="true">
             <intent-filter>

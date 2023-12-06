@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/add_event_title_dialog"
-        android:textColor="@color/black"
+        android:textColor="@color/theme_primary"
         android:textStyle="bold"
         android:textSize="20sp"
         />

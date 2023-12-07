@@ -65,14 +65,14 @@ public class WeekView_Fragment extends Fragment
         prev_week_bt.setOnClickListener(new View.OnClickListener() {   //Go to Previous Week
             @Override
             public void onClick(View v) {
-                CalendarUtils.selected_date = CalendarUtils.selected_date.minusMonths(1);
+                CalendarUtils.selected_date = CalendarUtils.selected_date.minusWeeks(1);
                 setupCalendar();
             }
         });
         next_week_bt.setOnClickListener(new View.OnClickListener() {   //Go to Next Week
             @Override
             public void onClick(View v) {
-                CalendarUtils.selected_date = CalendarUtils.selected_date.plusMonths(1);
+                CalendarUtils.selected_date = CalendarUtils.selected_date.plusWeeks(1);
                 setupCalendar();
             }
         });

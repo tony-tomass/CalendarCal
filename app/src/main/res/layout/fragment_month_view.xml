@@ -21,9 +21,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/back"
-            android:textColor="@color/white"
+            android:textColor="@color/theme_secondary"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:background="@null"
             />
 
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/placeholder"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 />
@@ -61,9 +61,9 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/forward"
-            android:textColor="@color/white"
+            android:textColor="@color/theme_secondary"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="30sp"
             android:background="@null"
             />
 
@@ -72,6 +72,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="6dp"
         android:orientation="horizontal"
         android:background="@color/theme_primary">
@@ -111,13 +112,13 @@
         android:id="@+id/calendar_RV"
         android:layout_width="match_parent"
         android:layout_height="480dp"
-        android:background="@color/white"
+        android:background="@color/theme_background"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/theme_background"
         />
 
 </LinearLayout>

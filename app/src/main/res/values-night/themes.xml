@@ -3,5 +3,8 @@
     <style name="Base.Theme.CalendarApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:statusBarColor"> @color/theme_primary </item>
+        <item name="android:windowLightStatusBar"> false </item>
+        <item name="android:colorPrimary"> @color/theme_primary </item>
     </style>
 </resources>

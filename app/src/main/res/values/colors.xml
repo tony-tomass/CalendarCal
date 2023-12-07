@@ -8,6 +8,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
 
-    <color name="theme_primary"> #FF0000FF </color>
+    <color name="theme_primary">#2D2DB3</color>
+    <color name="theme_primary_accent1">#3A3AC8</color>
+    <color name="theme_secondary">#D1315E</color>
+    <color name="theme_secondary_accent1">#9F3150</color>
+    <color name="theme_secondary_accent2">#FFD6E1</color>
+    <color name="theme_background">#191D3E</color>
+    <color name="theme_background_accent1">#10132B</color>
+    <color name="theme_background_accent2">#262C61</color>
 
 </resources>

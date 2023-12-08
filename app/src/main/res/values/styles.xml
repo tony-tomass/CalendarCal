@@ -8,5 +8,10 @@
         <item name="android:textAlignment">center</item>
         <item name="android:textSize">16sp</item>
     </style>
+    
+    <style name="dialog_theme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/theme_background_accent2</item>
+        <item name="android:textColor">@color/theme_secondary</item>
+    </style>
 
 </resources>

@@ -63,7 +63,8 @@ public class AddEvent_DialogFragment extends DialogFragment{
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         //super.onCreateDialog(savedInstanceState);
-        AlertDialog.Builder dialog_builder = new AlertDialog.Builder(getActivity());
+        //https://stackoverflow.com/questions/18346920/change-the-background-color-of-a-pop-up-dialog
+        AlertDialog.Builder dialog_builder = new AlertDialog.Builder(getActivity(), R.style.dialog_theme);
         /*
         //For the default style
         dialog_builder.setMessage(R.string.add_event_title_dialog)

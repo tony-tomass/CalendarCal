@@ -59,19 +59,4 @@ public class CalendarUtils {
         }
         return null;
     }
-
-    public static String monthYearFromDate(LocalDate localDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM yyyy");
-        return localDate.format(formatter);
-    }
-
-    public static String formatDate(LocalDate localDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
-        return localDate.format(formatter);
-    }
-
-    public static String formatTime(LocalTime localTime) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
-        return localTime.format(formatter);
-    }
 }

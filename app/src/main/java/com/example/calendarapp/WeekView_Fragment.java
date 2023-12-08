@@ -8,6 +8,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 
 public class WeekView_Fragment extends Fragment
         implements
-        CalendarAdapter.OnItemListener {
+        CalendarAdapter.OnItemListener, EventRVInterface {
 
     private TextView month_header_tv;
     private TextView year_header_tv;
@@ -31,6 +32,7 @@ public class WeekView_Fragment extends Fragment
     private Button add_event_bt;
     private RecyclerView calendar_rv;
     private ListView event_list_lv;
+    private RecyclerView event_list_rv;
 
     public WeekView_Fragment() {
         // Required empty public constructor
@@ -47,6 +49,7 @@ public class WeekView_Fragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_week_view, container, false);
         initWidgets(view);
+        //event_list_rv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         return view;
     }
 
@@ -57,7 +60,9 @@ public class WeekView_Fragment extends Fragment
         next_week_bt = view.findViewById(R.id.next_week_BT);
         prev_week_bt = view.findViewById(R.id.prev_week_BT);
         add_event_bt = view.findViewById(R.id.add_event_BT);
-        event_list_lv = view.findViewById(R.id.event_list_LV);
+        //event_list_lv = view.findViewById(R.id.event_list_LV);
+        event_list_rv = view.findViewById(R.id.event_list_RV);
+        setEventAdapterTwo();
         initListeners();
     }
 
@@ -96,7 +101,8 @@ public class WeekView_Fragment extends Fragment
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 7); //7 columns
         calendar_rv.setLayoutManager(layoutManager);
         calendar_rv.setAdapter(calendarAdapter);
-        setEventAdapter();
+        //setEventAdapter();
+        setEventAdapterTwo();
     }
 
     @Override
@@ -117,6 +123,19 @@ public class WeekView_Fragment extends Fragment
         ArrayList<Event> events = Event.eventsForDate(CalendarUtils.selected_date);
         EventAdapter adapter = new EventAdapter(getActivity().getApplicationContext(), events);
         event_list_lv.setAdapter(adapter);
+    }
+
+    private void setEventAdapterTwo() {
+        ArrayList<Event> events = Event.eventsForDate(CalendarUtils.selected_date);
+        EventAdapterTwo adapterTwo = new EventAdapterTwo(getActivity().getApplicationContext(), events, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        event_list_rv.setLayoutManager(layoutManager);
+        event_list_rv.setAdapter(adapterTwo);
+    }
+
+    @Override
+    public void onEventClick(int position) {
+
     }
 
     /*

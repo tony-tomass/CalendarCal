@@ -1,5 +1,7 @@
 package com.example.calendarapp;
 
+import android.graphics.Color;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -15,10 +17,10 @@ public class Event {
                 events.add(events_list.get(i));
             }
         }
-
         return events;
     }
 
+    private Color tag_color;
     private String name;
     private LocalDate date;
     private LocalTime time;
@@ -51,5 +53,13 @@ public class Event {
 
     public void setTime(LocalTime time) {
         this.time = time;
+    }
+
+    public Color getTag_color() {
+        return tag_color;
+    }
+
+    public void setTag_color(Color tag_color) {
+        this.tag_color = tag_color;
     }
 }

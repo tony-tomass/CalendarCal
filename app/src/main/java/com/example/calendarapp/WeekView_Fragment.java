@@ -4,7 +4,6 @@ import static com.example.calendarapp.CalendarUtils.daysInWeekArray;
 
 import android.os.Bundle;
 
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -15,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.time.LocalDate;
@@ -31,7 +29,6 @@ public class WeekView_Fragment extends Fragment
     private Button prev_week_bt;
     private Button add_event_bt;
     private RecyclerView calendar_rv;
-    private ListView event_list_lv;
     private RecyclerView event_list_rv;
 
     public WeekView_Fragment() {
@@ -62,7 +59,7 @@ public class WeekView_Fragment extends Fragment
         add_event_bt = view.findViewById(R.id.add_event_BT);
         //event_list_lv = view.findViewById(R.id.event_list_LV);
         event_list_rv = view.findViewById(R.id.event_list_RV);
-        setEventAdapterTwo();
+        setEventAdapter();
         initListeners();
     }
 
@@ -102,7 +99,7 @@ public class WeekView_Fragment extends Fragment
         calendar_rv.setLayoutManager(layoutManager);
         calendar_rv.setAdapter(calendarAdapter);
         //setEventAdapter();
-        setEventAdapterTwo();
+        setEventAdapter();
     }
 
     @Override
@@ -121,21 +118,15 @@ public class WeekView_Fragment extends Fragment
 
     private void setEventAdapter() {
         ArrayList<Event> events = Event.eventsForDate(CalendarUtils.selected_date);
-        EventAdapter adapter = new EventAdapter(getActivity().getApplicationContext(), events);
-        event_list_lv.setAdapter(adapter);
-    }
-
-    private void setEventAdapterTwo() {
-        ArrayList<Event> events = Event.eventsForDate(CalendarUtils.selected_date);
-        EventAdapterTwo adapterTwo = new EventAdapterTwo(getActivity().getApplicationContext(), events, this);
+        EventAdapter adapter = new EventAdapter(getActivity().getApplicationContext(), events, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         event_list_rv.setLayoutManager(layoutManager);
-        event_list_rv.setAdapter(adapterTwo);
+        event_list_rv.setAdapter(adapter);
     }
 
     @Override
     public void onEventClick(int position) {
-
+        //
     }
 
     /*

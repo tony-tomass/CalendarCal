@@ -2,34 +2,41 @@ package com.example.calendarapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import java.util.ArrayList;
 
-public class EventAdapter extends ArrayAdapter<Event> {
+public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
 
+    Context context;
+    ArrayList<Event> events;
+    EventRVInterface eventRVInterface;
 
-    public EventAdapter(@NonNull Context context, List<Event> event_list) {
-        super(context, 0, event_list);
+    public EventAdapter(Context context, ArrayList<Event> events, EventRVInterface eventRVInterface) {
+        this.context = context;
+        this.events = events;
+        this.eventRVInterface = eventRVInterface;
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Event event = getItem(position);
+    public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new EventViewHolder(LayoutInflater.from(context)
+                .inflate(R.layout.event_list_row, parent, false), eventRVInterface);
+    }
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_cell, parent, false);
-        }
-        TextView event_name_tv = (TextView) convertView.findViewById(R.id.event_cell_TV);
-        String event_name = event.getName() + " " + CalendarUtils.formatTime(event.getTime());
-        event_name_tv.setText(event_name);
-        return convertView;
+    @Override
+    public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
+        //holder.event_tag_color.setBackground(events.get);
+        holder.event_name_tv.setText(events.get(position).getName());
+        holder.event_datetime_tv.setText(events.get(position).getDate().toString());
+    }
+
+    @Override
+    public int getItemCount() {
+        return events.size();
     }
 }

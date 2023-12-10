@@ -1,11 +1,11 @@
 package com.example.calendarapp;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,14 +20,17 @@ public class AddEvent_Fragment extends Fragment {
 
     private EditText new_event_name_et;
     private Button new_event_date_bt;
+    private Button new_event_time_bt;
     private Button cancel_event_bt;
     private Button add_event_bt;
     private DatePickerDialog datePickerDialog;
     private DatePickerDialog.OnDateSetListener dateSetListener;
-    //private LocalDate date;
-    private LocalTime time;
+    private TimePickerDialog timePickerDialog;
+    private TimePickerDialog.OnTimeSetListener timeSetListener;
     private LocalDate new_selected_date;
-    private DateTimeFormatter formatter;
+    private LocalTime new_selected_time;
+    private DateTimeFormatter dateFormatter;
+    private DateTimeFormatter timeFormatter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +50,15 @@ public class AddEvent_Fragment extends Fragment {
         new_event_name_et = view.findViewById(R.id.new_event_name_ET);
         cancel_event_bt = view.findViewById(R.id.cancel_new_event_BT);
         new_event_date_bt = view.findViewById(R.id.new_event_date_BT);
+        new_event_time_bt = view.findViewById(R.id.new_event_time_BT);
         add_event_bt = view.findViewById(R.id.add_new_event_BT);
 
-        formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
-        String formatted_date = CalendarUtils.selected_date.format(formatter);
+        dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+        timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
+        String formatted_date = CalendarUtils.selected_date.format(dateFormatter);
+        String formatted_time = LocalTime.now().format(timeFormatter);
         new_event_date_bt.setText(formatted_date);
+        new_event_time_bt.setText(formatted_time);
 
         initListeners();
     }
@@ -62,7 +69,7 @@ public class AddEvent_Fragment extends Fragment {
             public void onDateSet(DatePicker view, int year, int month, int day) {
                 int new_month = month + 1;
                 new_selected_date = LocalDate.of(year, new_month, day);
-                String formatted_date = new_selected_date.format(formatter);
+                String formatted_date = new_selected_date.format(dateFormatter);
                 //Log.i("new_date", new_selected_date.toString());
                 new_event_date_bt.setText(formatted_date);
             }
@@ -82,6 +89,29 @@ public class AddEvent_Fragment extends Fragment {
                         dateSetListener,
                         year, month, day);
                 datePickerDialog.show();
+            }
+        });
+        timeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hour, int minute) {
+                new_selected_time = LocalTime.of(hour, minute);
+                String formatted_time = new_selected_time.format(timeFormatter);
+                new_event_time_bt.setText(formatted_time);
+            }
+        };
+        new_event_time_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalTime time = LocalTime.now();
+                int hour = time.getHour();
+                int minute = time.getMinute();
+
+                timePickerDialog = new TimePickerDialog(
+                        getActivity(),
+                        android.R.style.Theme_DeviceDefault_Dialog_Alert,
+                        timeSetListener,
+                        hour, minute, false);
+                timePickerDialog.show();
             }
         });
         cancel_event_bt.setOnClickListener(new View.OnClickListener() {

@@ -138,6 +138,7 @@ public class AddEvent_Fragment extends Fragment {
                 }
                 //Log.i("ADDING_TIME", new_selected_time.toString());
                 Event new_event = new Event(name, new_selected_date, new_selected_time);
+                Event.saveEventData(getActivity().getApplicationContext(), name, new_selected_date.toString(), new_selected_time.toString());
                 Event.events_list.add(new_event);
 
                 getActivity().getSupportFragmentManager().popBackStack();

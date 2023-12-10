@@ -33,6 +33,8 @@ public class Main_Activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Event.loadEventData(getApplicationContext());
+
         //https://developer.android.com/guide/fragments/transactions
         frag_manager = getSupportFragmentManager();
         if (savedInstanceState == null) {

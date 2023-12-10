@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CalendarApp"
         tools:targetApi="31">
+
+        <provider
+            android:authorities="com.calendarapp.eventcontentprovider"
+            android:name=".EventContentProvider"
+            android:enabled="true"
+            android:exported="false"
+            />
+
         <activity
             android:name=".Main_Activity"
             android:exported="true">

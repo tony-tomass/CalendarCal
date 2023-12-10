@@ -121,13 +121,13 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarViewHolder> {
              */
             //Uses a Three-Bar Format
             if (events.size() > 0) {
-                holder.event_dot_3.setBackgroundColor(Color.BLUE);
+                holder.event_dot_3.setBackgroundColor(ResourcesCompat.getColor(view.getResources(), R.color.theme_secondary, null));
             }
             if (events.size() > 1) {
-                holder.event_dot_2.setBackgroundColor(Color.BLUE);
+                holder.event_dot_2.setBackgroundColor(ResourcesCompat.getColor(view.getResources(), R.color.theme_secondary, null));
             }
             if (events.size() > 2) {
-                holder.event_dot_1.setBackgroundColor(Color.BLUE);
+                holder.event_dot_1.setBackgroundColor(ResourcesCompat.getColor(view.getResources(), R.color.theme_secondary, null));
             }
         }
         else {

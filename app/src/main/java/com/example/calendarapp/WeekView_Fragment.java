@@ -86,11 +86,11 @@ public class WeekView_Fragment extends Fragment
                 //AddEvent_DialogFragment add_event_dialog = new AddEvent_DialogFragment();
                 //add_event_dialog.show(manager, "ADD_EVENT");
                 manager.beginTransaction()
-                        .setCustomAnimations(
-                                R.anim.slide_up_anim,
-                                R.anim.fade_out_anim,
-                                R.anim.fade_in_anim,
-                                R.anim.slide_down_anim)   // https://developer.android.com/guide/fragments/animate#java
+                        .setCustomAnimations(   // https://developer.android.com/guide/fragments/animate#java
+                                R.anim.slide_up_anim,   //Next fragment goes in
+                                R.anim.fade_out_anim,   //Prev fragment goes out
+                                R.anim.fade_in_anim,   //Next fragment goes out
+                                R.anim.slide_down_anim)   //Prev fragment goes in
                         .replace(R.id.fragment_container_view, addEvent_fragment)
                         .addToBackStack("add_event")
                         .commit();

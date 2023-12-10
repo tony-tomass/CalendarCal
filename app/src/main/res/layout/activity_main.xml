@@ -14,26 +14,6 @@
         android:layout_weight="1"
         />
 
-    <!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        android:background="@color/blue"
-        android:layout_weight="1">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/placeholder"
-            android:textSize="50sp"
-            android:textColor="@color/white"
-            />
-
-    </LinearLayout>
-    -->
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav_bar_BNV"
         android:layout_width="match_parent"
@@ -41,6 +21,7 @@
         app:itemBackground="@color/theme_primary"
         app:itemIconTint="@drawable/bottom_nav_selector"
         app:itemTextColor="@drawable/bottom_nav_selector"
+        app:itemIconSize="37dp"
         app:menu="@menu/bottom_nav_bar_menu"
         />
 

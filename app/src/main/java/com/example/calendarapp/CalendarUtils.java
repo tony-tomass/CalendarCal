@@ -7,11 +7,15 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.ArrayList;
 
 public class CalendarUtils {
 
     public static LocalDate selected_date;
+    //https://howtodoinjava.com/java/date-time/java8-datetimeformatter-example/
+    public static final DateTimeFormatter dateFormatter_MED = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
+    public static final DateTimeFormatter timeFormatter_12HR = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
 
     public static ArrayList<LocalDate> daysInMonthArray(LocalDate localDate) {
         ArrayList<LocalDate> days_in_month_array = new ArrayList<>();

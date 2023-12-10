@@ -37,10 +37,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
         //holder.event_tag_color.setBackground(events.get);
         holder.event_name_tv.setText(events.get(position).getName());
-        //https://howtodoinjava.com/java/date-time/java8-datetimeformatter-example/
-        DateTimeFormatter date_formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
-        DateTimeFormatter time_formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
-        holder.event_datetime_tv.setText("" + events.get(position).getDate().format(date_formatter) + " at " + LocalTime.now().format(time_formatter));
+        String date = events.get(position).getDate().format(CalendarUtils.dateFormatter_MED);
+        String time = events.get(position).getTime().format(CalendarUtils.timeFormatter_12HR);
+        String date_time = date + " at " + time;
+        holder.event_datetime_tv.setText(date_time);
     }
 
     @Override

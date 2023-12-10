@@ -86,6 +86,11 @@ public class WeekView_Fragment extends Fragment
                 //AddEvent_DialogFragment add_event_dialog = new AddEvent_DialogFragment();
                 //add_event_dialog.show(manager, "ADD_EVENT");
                 manager.beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_up_anim,
+                                R.anim.fade_out_anim,
+                                R.anim.fade_in_anim,
+                                R.anim.slide_down_anim)   // https://developer.android.com/guide/fragments/animate#java
                         .replace(R.id.fragment_container_view, addEvent_fragment)
                         .addToBackStack("add_event")
                         .commit();
@@ -132,16 +137,4 @@ public class WeekView_Fragment extends Fragment
     public void onEventClick(int position) {
         //
     }
-
-    /*
-    @Override
-    public void onDialogPositiveClick(DialogFragment dialog) {
-        //
-    }
-
-    @Override
-    public void onDialogNegativeClick(DialogFragment dialog) {
-        //
-    }
-     */
 }

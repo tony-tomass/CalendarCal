@@ -11,11 +11,14 @@
         <item name="android:statusBarColor"> @color/theme_primary </item>
         <item name="android:windowLightStatusBar"> false </item>
         <item name="android:colorPrimary"> @color/theme_primary </item>
+        <item name="android:colorBackground"> @color/theme_background </item>
     </style>
 
     <style name="Theme.CalendarApp" parent="Base.Theme.CalendarApp" />
 
     <!-- https://stackoverflow.com/questions/44418149/cant-get-android-datepickerdialog-to-switch-to-spinner-mode -->
+    <!-- More in-depth on Picker styling
+    https://stackoverflow.com/questions/28738089/how-to-change-datepicker-dialog-color-for-android-5-0-->
     <style name="DatePickerStyle" parent="android:Theme.Material.Dialog">
         <item name="android:datePickerStyle">@style/SpinnerDatePicker</item>
     </style>

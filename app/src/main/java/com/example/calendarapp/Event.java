@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Event {
 
-    public static ArrayList<Event> events_list = new ArrayList<>();
+    public static ArrayList<Event> events_list;
     public static ArrayList<Event> eventsForDate(LocalDate date) {
         ArrayList<Event> events = new ArrayList<>();
 

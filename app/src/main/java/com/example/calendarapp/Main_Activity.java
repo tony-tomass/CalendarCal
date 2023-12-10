@@ -5,15 +5,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 //All about Fragments
 //https://developer.android.com/guide/fragments#getting-started
-public class Main_Activity extends AppCompatActivity {
+public class Main_Activity extends AppCompatActivity{
 
     FragmentManager frag_manager;
 
@@ -29,7 +38,6 @@ public class Main_Activity extends AppCompatActivity {
         if (savedInstanceState == null) {
             changeFragment(new MonthView_Fragment());
         }
-
 
         btm_nav_bar_bnv = findViewById(R.id.bottom_nav_bar_BNV);
         btm_nav_bar_bnv.getMenu().findItem(R.id.calendar_bottom_nav_BT).setChecked(true);
@@ -58,4 +66,5 @@ public class Main_Activity extends AppCompatActivity {
                 .addToBackStack(null)
                 .commit();
     }
+
 }

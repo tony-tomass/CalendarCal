@@ -91,6 +91,11 @@ public class MonthView_Fragment extends Fragment implements CalendarAdapter.OnIt
         WeekView_Fragment weekViewFragment = new WeekView_Fragment();
         FragmentManager manager = getActivity().getSupportFragmentManager();
         manager.beginTransaction()
+                .setCustomAnimations(
+                        R.anim.fade_in_anim,
+                        R.anim.fade_out_anim,
+                        R.anim.fade_in_anim,
+                        R.anim.fade_out_anim)
                 .replace(R.id.fragment_container_view, weekViewFragment)
                 .addToBackStack("cal_week_view")
                 .commit();

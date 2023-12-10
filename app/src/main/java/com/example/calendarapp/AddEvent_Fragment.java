@@ -2,6 +2,8 @@ package com.example.calendarapp;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
+
+import com.google.gson.Gson;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -135,8 +139,10 @@ public class AddEvent_Fragment extends Fragment {
                 //Log.i("ADDING_TIME", new_selected_time.toString());
                 Event new_event = new Event(name, new_selected_date, new_selected_time);
                 Event.events_list.add(new_event);
+
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
     }
+
 }

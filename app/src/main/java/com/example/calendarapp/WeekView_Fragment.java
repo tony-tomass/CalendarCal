@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class WeekView_Fragment extends Fragment
     private Button next_week_bt;
     private Button prev_week_bt;
     private Button add_event_bt;
+    private Button back2_month_view_bt;
     private RecyclerView calendar_rv;
     private RecyclerView event_list_rv;
 
@@ -46,6 +48,7 @@ public class WeekView_Fragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_week_view, container, false);
         initWidgets(view);
+        Log.i("LOAD", "Events loaded: " + Event.events_list.size());
         //event_list_rv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         return view;
     }
@@ -57,8 +60,12 @@ public class WeekView_Fragment extends Fragment
         next_week_bt = view.findViewById(R.id.next_week_BT);
         prev_week_bt = view.findViewById(R.id.prev_week_BT);
         add_event_bt = view.findViewById(R.id.add_event_BT);
-        //event_list_lv = view.findViewById(R.id.event_list_LV);
+        back2_month_view_bt = view.findViewById(R.id.back2_month_view_BT);
         event_list_rv = view.findViewById(R.id.event_list_RV);
+
+        String back_text = " < " + CalendarUtils.selected_date.getMonth().getValue() + "/" + CalendarUtils.selected_date.getYear();
+        back2_month_view_bt.setText(back_text);
+
         setEventAdapter();
         initListeners();
     }
@@ -94,6 +101,12 @@ public class WeekView_Fragment extends Fragment
                         .replace(R.id.fragment_container_view, addEvent_fragment)
                         .addToBackStack("add_event")
                         .commit();
+            }
+        });
+        back2_month_view_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
     }

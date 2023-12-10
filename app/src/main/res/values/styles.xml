@@ -14,4 +14,14 @@
         <item name="android:textColor">@color/theme_secondary</item>
     </style>
 
+    <style name="Style.App.circleImageView" parent="">
+        <item name="shapeAppearance">@style/ShapeAppearanceOverlay.App.circleImageView</item>
+    </style>
+
+    <!-- https://stackoverflow.com/questions/66624415/shapeableimageview-doesnt-round-corners -->
+    <style name="ShapeAppearanceOverlay.App.circleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
 </resources>

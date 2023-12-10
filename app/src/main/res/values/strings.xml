@@ -27,4 +27,9 @@
     <string name="time">TIME</string>
     <string name="tag">TAG</string>
     <string name="info">Info</string>
+    <string name="classification">Classification</string>
+    <string name="save">Save</string>
+    <string name="major">Major</string>
+    <string name="email">E-Mail</string>
+    <string name="full_name">Full Name</string>
 </resources>

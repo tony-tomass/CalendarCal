@@ -35,8 +35,11 @@ public class AddEvent_Fragment extends Fragment {
     private TimePickerDialog.OnTimeSetListener timeSetListener;
     private LocalDate new_selected_date;
     private LocalTime new_selected_time;
-    //private DateTimeFormatter dateFormatter;
-    //private DateTimeFormatter timeFormatter;
+
+    public AddEvent_Fragment() {
+        //Empty constructor
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

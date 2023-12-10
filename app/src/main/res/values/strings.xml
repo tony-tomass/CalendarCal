@@ -26,4 +26,5 @@
     <string name="date">DATE</string>
     <string name="time">TIME</string>
     <string name="tag">TAG</string>
+    <string name="info">Info</string>
 </resources>

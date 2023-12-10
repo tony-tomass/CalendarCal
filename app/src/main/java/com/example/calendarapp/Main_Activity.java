@@ -54,6 +54,9 @@ public class Main_Activity extends AppCompatActivity{
                 else if (itemId == R.id.calendar_bottom_nav_BT) {
                     changeFragment(new MonthView_Fragment());
                 }
+                else if (itemId == R.id.tutors_bottom_nav_BT) {
+                    changeFragment(new Tutors_Fragment());
+                }
                 else if (itemId == R.id.profile_bottom_nav_BT) {
                     changeFragment(new Profile_Fragment());
                 }

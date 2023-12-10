@@ -81,10 +81,14 @@ public class WeekView_Fragment extends Fragment
         add_event_bt.setOnClickListener(new View.OnClickListener() {   //Add an Event to a date
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getActivity().getApplicationContext(), EventEditActivity.class));
-                FragmentManager frag_manager = getActivity().getSupportFragmentManager();
-                AddEvent_DialogFragment add_event_dialog = new AddEvent_DialogFragment();
-                add_event_dialog.show(frag_manager, "ADD_EVENT");
+                AddEvent_Fragment addEvent_fragment = new AddEvent_Fragment();
+                FragmentManager manager = getActivity().getSupportFragmentManager();
+                //AddEvent_DialogFragment add_event_dialog = new AddEvent_DialogFragment();
+                //add_event_dialog.show(manager, "ADD_EVENT");
+                manager.beginTransaction()
+                        .replace(R.id.fragment_container_view, addEvent_fragment)
+                        .addToBackStack("add_event")
+                        .commit();
             }
         });
     }

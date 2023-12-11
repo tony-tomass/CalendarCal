@@ -18,13 +18,15 @@ public class EventContentProvider extends ContentProvider {
     public static final String COL1_NAME = "Name";
     public static final String COL2_NAME = "Date";
     public static final String COL3_NAME = "Time";
+    public static final String COL4_NAME = "Color";
     public static final String AUTHORITY = "com.calendarapp.eventcontentprovider";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + DB_NAME);
     public static final String CREATE_URI_QUERY = "CREATE TABLE IF NOT EXISTS " + TBL_NAME +
             "( _id INTEGER PRIMARY KEY, " +
             COL1_NAME + " TEXT, " +
             COL2_NAME + " TEXT, " +
-            COL3_NAME + " TEXT )"
+            COL3_NAME + " TEXT, " +
+            COL4_NAME + " INTEGER )"
             ;
 
     protected static final class MainDBHelper extends SQLiteOpenHelper {

@@ -34,6 +34,8 @@
         </com.google.android.material.bottomnavigation.BottomNavigationView>
     </FrameLayout>
 
+    <!-- Floating Action Button
+    https://developer.android.com/develop/ui/views/components/floating-action-button -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_FAB"
         android:layout_width="wrap_content"

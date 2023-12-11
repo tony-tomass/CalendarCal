@@ -14,6 +14,13 @@
         <item name="android:textColor">@color/theme_secondary</item>
     </style>
 
+    <style name="choose_tag_color" parent="TextAppearance.AppCompat">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
     <style name="Style.App.circleImageView" parent="">
         <item name="shapeAppearance">@style/ShapeAppearanceOverlay.App.circleImageView</item>
     </style>

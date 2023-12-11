@@ -41,6 +41,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         String time = events.get(position).getTime().format(CalendarUtils.timeFormatter_12HR);
         String date_time = date + " at " + time;
         holder.event_datetime_tv.setText(date_time);
+        holder.event_tag_color.setBackgroundColor(events.get(position).getTag_color());
     }
 
     @Override

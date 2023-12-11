@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -29,10 +30,12 @@ public class AddEvent_Fragment extends Fragment {
     private Button new_event_time_bt;
     private Button cancel_event_bt;
     private Button add_event_bt;
+    private Button choose_color_1_bt, choose_color_2_bt, choose_color_3_bt, choose_color_4_bt;
     private DatePickerDialog datePickerDialog;
     private DatePickerDialog.OnDateSetListener dateSetListener;
     private TimePickerDialog timePickerDialog;
     private TimePickerDialog.OnTimeSetListener timeSetListener;
+    private int new_selected_color_id;
     private LocalDate new_selected_date;
     private LocalTime new_selected_time;
 
@@ -57,12 +60,23 @@ public class AddEvent_Fragment extends Fragment {
     private void initWidgets(View view) {
         new_selected_date = CalendarUtils.selected_date;
         new_selected_time = LocalTime.now();
+        new_selected_color_id = Color.WHITE;   //Default color
 
         new_event_name_et = view.findViewById(R.id.new_event_name_ET);
         cancel_event_bt = view.findViewById(R.id.cancel_new_event_BT);
         new_event_date_bt = view.findViewById(R.id.new_event_date_BT);
         new_event_time_bt = view.findViewById(R.id.new_event_time_BT);
         add_event_bt = view.findViewById(R.id.add_new_event_BT);
+
+        choose_color_1_bt = view.findViewById(R.id.choose_color_1_BT);
+        choose_color_2_bt = view.findViewById(R.id.choose_color_2_BT);
+        choose_color_3_bt = view.findViewById(R.id.choose_color_3_BT);
+        choose_color_4_bt = view.findViewById(R.id.choose_color_4_BT);
+
+        choose_color_1_bt.setBackgroundColor(Color.YELLOW);
+        choose_color_2_bt.setBackgroundColor(Color.CYAN);
+        choose_color_3_bt.setBackgroundColor(Color.MAGENTA);
+        choose_color_4_bt.setBackgroundColor(Color.GREEN);
 
         //dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM);
         //timeFormatter = DateTimeFormatter.ofPattern("h:mm a");
@@ -140,11 +154,39 @@ public class AddEvent_Fragment extends Fragment {
                     name = "(no name)";
                 }
                 //Log.i("ADDING_TIME", new_selected_time.toString());
-                Event new_event = new Event(name, new_selected_date, new_selected_time);
-                Event.saveEventData(getActivity().getApplicationContext(), name, new_selected_date.toString(), new_selected_time.toString());
+                Event new_event = new Event(name, new_selected_date, new_selected_time, new_selected_color_id);
+                Event.saveEventData(getActivity().getApplicationContext(), name, new_selected_date.toString(), new_selected_time.toString(), new_selected_color_id);
                 Event.events_list.add(new_event);
 
                 getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
+        initColorPickListeners();
+    }
+
+    private void initColorPickListeners() {
+        choose_color_1_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new_selected_color_id = Color.YELLOW;
+            }
+        });
+        choose_color_2_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new_selected_color_id = Color.CYAN;
+            }
+        });
+        choose_color_3_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new_selected_color_id = Color.MAGENTA;
+            }
+        });
+        choose_color_4_bt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new_selected_color_id = Color.GREEN;
             }
         });
     }

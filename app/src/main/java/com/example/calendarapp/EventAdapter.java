@@ -1,10 +1,12 @@
 package com.example.calendarapp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.time.LocalTime;
@@ -41,6 +43,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventViewHolder> {
         String time = events.get(position).getTime().format(CalendarUtils.timeFormatter_12HR);
         String date_time = date + " at " + time;
         holder.event_datetime_tv.setText(date_time);
+        //holder.event_datetime_tv.setTextColor(Color.WHITE);
         holder.event_tag_color.setBackgroundColor(events.get(position).getTag_color());
     }
 

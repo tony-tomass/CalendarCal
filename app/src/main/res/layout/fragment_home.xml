@@ -1,17 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/theme_background"
     tools:context=".Home_Fragment">
 
     <TextView
+        android:id="@+id/tv_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="UNDER CONSTRUCTION"
-        android:textSize="30sp"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_primary"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="13dp"
+        android:textSize="11sp"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:textColor="@color/theme_secondary"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <LinearLayout
+        android:id="@+id/tv_header_accent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="4dp"
+        android:background="@color/theme_primary_accent1"
+        app:layout_constraintTop_toBottomOf="@id/tv_header"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="5dp"
+        android:orientation="horizontal"
+        />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/cal_dmy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/rounded_corners"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="10dp"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/home_month_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/abrv_month_placeholder"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:includeFontPadding="false"
+                />
+            <TextView
+                android:id="@+id/home_year_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/year_placeholder"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:includeFontPadding="false"
+                />
+        </LinearLayout>
+        <TextView
+            android:id="@+id/home_day_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/day_of_month_placeholder"
+            android:includeFontPadding="false"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="110sp"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+    <AnalogClock
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginHorizontal="25dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cal_dmy"
+        android:elevation="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PROGRESS"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@id/event_progress_PB"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+    <ProgressBar
+        android:id="@+id/event_progress_PB"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginTop="255dp"
+        android:layout_marginHorizontal="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="10dp"
+        android:progressDrawable="@drawable/progress_bar_design"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="7dp"
+        android:text="EVENTS FOR TODAY"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toTopOf="@id/home_events_RV"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/theme_primary"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_events_RV"
+        android:layout_marginTop="375dp"
+        android:layout_marginHorizontal="20dp"
+        android:padding="10dp"
+        android:background="@color/theme_background_accent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

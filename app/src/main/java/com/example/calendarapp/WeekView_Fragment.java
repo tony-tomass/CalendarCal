@@ -28,7 +28,7 @@ public class WeekView_Fragment extends Fragment
     private TextView year_header_tv;
     private Button next_week_bt;
     private Button prev_week_bt;
-    private Button add_event_bt;
+    private Button events_for_today_bt;
     private Button back2_month_view_bt;
     private RecyclerView calendar_rv;
     private RecyclerView event_list_rv;
@@ -48,7 +48,7 @@ public class WeekView_Fragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_week_view, container, false);
         initWidgets(view);
-        Log.i("LOAD", "Events loaded: " + Event.events_list.size());
+        //Log.i("LOAD", "Events loaded: " + Event.events_list.size());
         //event_list_rv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         return view;
     }
@@ -59,7 +59,7 @@ public class WeekView_Fragment extends Fragment
         year_header_tv = view.findViewById(R.id.year_header_TV);
         next_week_bt = view.findViewById(R.id.next_week_BT);
         prev_week_bt = view.findViewById(R.id.prev_week_BT);
-        add_event_bt = view.findViewById(R.id.add_event_BT);
+        events_for_today_bt = view.findViewById(R.id.add_event_BT);
         back2_month_view_bt = view.findViewById(R.id.back2_month_view_BT);
         event_list_rv = view.findViewById(R.id.event_list_RV);
 
@@ -85,24 +85,6 @@ public class WeekView_Fragment extends Fragment
                 setupCalendar();
             }
         });
-        add_event_bt.setOnClickListener(new View.OnClickListener() {   //Add an Event to a date
-            @Override
-            public void onClick(View v) {
-                AddEvent_Fragment addEvent_fragment = new AddEvent_Fragment();
-                FragmentManager manager = getActivity().getSupportFragmentManager();
-                //AddEvent_DialogFragment add_event_dialog = new AddEvent_DialogFragment();
-                //add_event_dialog.show(manager, "ADD_EVENT");
-                manager.beginTransaction()
-                        .setCustomAnimations(   // https://developer.android.com/guide/fragments/animate#java
-                                R.anim.slide_up_anim,   //Next fragment goes in
-                                R.anim.fade_out_anim,   //Prev fragment goes out
-                                R.anim.fade_in_anim,   //Next fragment goes out
-                                R.anim.slide_down_anim)   //Prev fragment goes in
-                        .replace(R.id.fragment_container_view, addEvent_fragment)
-                        .addToBackStack("add_event")
-                        .commit();
-            }
-        });
         back2_month_view_bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +102,7 @@ public class WeekView_Fragment extends Fragment
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 7); //7 columns
         calendar_rv.setLayoutManager(layoutManager);
         calendar_rv.setAdapter(calendarAdapter);
-        //setEventAdapter();
+
         setEventAdapter();
     }
 
@@ -140,13 +122,16 @@ public class WeekView_Fragment extends Fragment
 
     private void setEventAdapter() {
         ArrayList<Event> events = Event.eventsForDate(CalendarUtils.selected_date);
+
+        String events_for_2day = "Events for " + CalendarUtils.selected_date.format(CalendarUtils.dateFormatter_MED);
+        events_for_today_bt.setText(events_for_2day);
+
         EventAdapter adapter = new EventAdapter(getActivity().getApplicationContext(), events, this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         event_list_rv.setLayoutManager(layoutManager);
         event_list_rv.setAdapter(adapter);
     }
 
-    @Override
     public void onEventClick(int position) {
         //
     }

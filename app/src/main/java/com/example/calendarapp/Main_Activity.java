@@ -40,7 +40,7 @@ public class Main_Activity extends AppCompatActivity{
         //https://developer.android.com/guide/fragments/transactions
         frag_manager = getSupportFragmentManager();
         if (savedInstanceState == null) {
-            changeFragment(new MonthView_Fragment());
+            changeFragment(new Home_Fragment());
         }
 
         fab = findViewById(R.id.fab_FAB);
@@ -60,7 +60,7 @@ public class Main_Activity extends AppCompatActivity{
         });
 
         btm_nav_bar_bnv = findViewById(R.id.bottom_nav_bar_BNV);
-        btm_nav_bar_bnv.getMenu().findItem(R.id.calendar_bottom_nav_BT).setChecked(true);
+        btm_nav_bar_bnv.getMenu().findItem(R.id.home_bottom_nav_BT).setChecked(true);
         btm_nav_bar_bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

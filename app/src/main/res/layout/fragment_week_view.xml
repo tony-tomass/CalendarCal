@@ -140,7 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginStart="10dp"
-        android:text="@string/add_new_event"
+        android:text="@string/placeholder"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20sp"

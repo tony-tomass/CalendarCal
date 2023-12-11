@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- https://www.youtube.com/watch?v=vFziVSSIX6Q&ab_channel=TechnicalCoding -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <corners android:radius="6dp"/>
+            <solid android:color="@color/theme_secondary"/>
+            <stroke android:width="2dp" android:color="@color/white"/>
+
+        </shape>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <scale android:scaleWidth="100%">
+            <shape android:shape="rectangle">
+                <corners android:radius="6dp"/>
+                <solid android:color="@color/theme_secondary_accent2"/>
+            </shape>
+        </scale>
+    </item>
+
+</layer-list>

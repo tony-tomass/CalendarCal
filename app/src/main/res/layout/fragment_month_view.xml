@@ -108,6 +108,14 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_primary_accent1"
+        android:paddingVertical="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_profile" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendar_RV"
         android:layout_width="match_parent"

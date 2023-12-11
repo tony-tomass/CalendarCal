@@ -67,6 +67,11 @@ public class Main_Activity extends AppCompatActivity{
 
     private void changeFragment(Fragment fragment) {
         frag_manager.beginTransaction()
+                .setCustomAnimations(
+                        R.anim.fade_in_anim,
+                        R.anim.fade_out_anim,
+                        R.anim.fade_in_anim,
+                        R.anim.fade_out_anim)
                 .replace(R.id.fragment_container_view, fragment)
                 .addToBackStack(null)
                 .commit();

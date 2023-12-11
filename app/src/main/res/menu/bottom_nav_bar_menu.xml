@@ -12,6 +12,11 @@
         android:icon="@drawable/baseline_calendar_month_24"
         />
     <item
+        android:id="@+id/placeholder_bnav"
+        android:icon="@color/transparent"
+        android:title=""
+        />
+    <item
         android:id="@+id/tutors_bottom_nav_BT"
         android:title=""
         android:icon="@drawable/baseline_people_24"

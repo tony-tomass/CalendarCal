@@ -70,6 +70,9 @@ public class Profile_Fragment extends Fragment {
                 editor.putString("Classification", ufClassification.getText().toString());
                 editor.apply();
 
+                Person person = new Person(ufName.getText().toString(), ufMajor.getText().toString(), R.drawable.ic_launcher_background);
+                Tutors_Fragment.personList.add(person);
+
                 Toast.makeText(getActivity().getApplicationContext(), "Profile saved successfully!", Toast.LENGTH_SHORT).show();
             }
         }

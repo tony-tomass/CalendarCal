@@ -12,6 +12,7 @@
         <item name="android:windowLightStatusBar"> false </item>
         <item name="android:colorPrimary"> @color/theme_primary </item>
         <item name="android:colorBackground"> @color/theme_background </item>
+        <item name="colorAccent"> @color/theme_secondary </item>
     </style>
 
     <style name="Theme.CalendarApp" parent="Base.Theme.CalendarApp" />

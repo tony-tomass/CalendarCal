@@ -17,7 +17,7 @@ public class Tutors_Fragment extends Fragment {
 
     RecyclerView recyclerView;
     PersonAdapter adapter;
-    List<Person> personList;
+    public static List<Person> personList;
 
     public Tutors_Fragment() {
         // Required empty public constructor

@@ -11,8 +11,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,8 +27,8 @@ import java.util.ArrayList;
 public class Main_Activity extends AppCompatActivity{
 
     FragmentManager frag_manager;
-
     BottomNavigationView btm_nav_bar_bnv;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,22 @@ public class Main_Activity extends AppCompatActivity{
         if (savedInstanceState == null) {
             changeFragment(new MonthView_Fragment());
         }
+
+        fab = findViewById(R.id.fab_FAB);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frag_manager.beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_up_anim,
+                                R.anim.fade_out_anim,
+                                R.anim.fade_in_anim,
+                                R.anim.slide_down_anim)
+                        .replace(R.id.fragment_container_view, new AddEvent_Fragment())
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
 
         btm_nav_bar_bnv = findViewById(R.id.bottom_nav_bar_BNV);
         btm_nav_bar_bnv.getMenu().findItem(R.id.calendar_bottom_nav_BT).setChecked(true);

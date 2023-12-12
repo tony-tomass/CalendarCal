@@ -5,7 +5,7 @@ along with a Bottom Navigation bar that connects all the fragments together.
 
 Click [here](https://github.com/tony-tomass/CalendarCal/blob/main/Project%20guidelines.pdf) the project guidlines
 
-Click [here]() to download the app as an .apk file
+Click [here](https://github.com/tony-tomass/CalendarCal/releases/download/v.0.0.0/calendar-app.apk) to download the current version of the app
 
 ## Features (as of 12/11/2023)
 

@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.time.LocalDate;
@@ -32,6 +33,9 @@ public class WeekView_Fragment extends Fragment
     private Button back2_month_view_bt;
     private RecyclerView calendar_rv;
     private RecyclerView event_list_rv;
+    private ImageView no_events_iv;
+    private TextView no_events_tv;
+    private ArrayList<Event> events;
 
     public WeekView_Fragment() {
         // Required empty public constructor
@@ -48,12 +52,14 @@ public class WeekView_Fragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_week_view, container, false);
         initWidgets(view);
+        setupCalendar();
         //Log.i("LOAD", "Events loaded: " + Event.events_list.size());
         //event_list_rv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         return view;
     }
 
     private void initWidgets(View view) {
+        events = Event.eventsForDate(CalendarUtils.selected_date);
         calendar_rv = view.findViewById(R.id.calendar_RV);
         month_header_tv = view.findViewById(R.id.month_header_TV);
         year_header_tv = view.findViewById(R.id.year_header_TV);
@@ -63,11 +69,16 @@ public class WeekView_Fragment extends Fragment
         back2_month_view_bt = view.findViewById(R.id.back2_month_view_BT);
         event_list_rv = view.findViewById(R.id.event_list_RV);
 
+        no_events_iv = view.findViewById(R.id.no_event_wview_IV);
+        no_events_tv = view.findViewById(R.id.no_event_wview_TV);
+
+        initListeners();
+        //checkEventAmount();
+
         String back_text = " < " + CalendarUtils.selected_date.getMonth().getValue() + "/" + CalendarUtils.selected_date.getYear();
         back2_month_view_bt.setText(back_text);
 
-        setEventAdapter();
-        initListeners();
+
     }
 
     private void initListeners() {
@@ -121,15 +132,24 @@ public class WeekView_Fragment extends Fragment
     }
 
     private void setEventAdapter() {
-        ArrayList<Event> events = Event.eventsForDate(CalendarUtils.selected_date);
+        events = Event.eventsForDate(CalendarUtils.selected_date);
+        if (events.size() == 0) {
+            no_events_iv.setVisibility(View.VISIBLE);
+            no_events_tv.setVisibility(View.VISIBLE);
+            event_list_rv.setVisibility(View.INVISIBLE);
+        }
+        else {
+            no_events_iv.setVisibility(View.INVISIBLE);
+            no_events_tv.setVisibility(View.INVISIBLE);
+            event_list_rv.setVisibility(View.VISIBLE);
+            String events_for_2day = "Events for " + CalendarUtils.selected_date.format(CalendarUtils.dateFormatter_MED);
+            events_for_today_bt.setText(events_for_2day);
 
-        String events_for_2day = "Events for " + CalendarUtils.selected_date.format(CalendarUtils.dateFormatter_MED);
-        events_for_today_bt.setText(events_for_2day);
-
-        EventAdapter adapter = new EventAdapter(getActivity().getApplicationContext(), events, this);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-        event_list_rv.setLayoutManager(layoutManager);
-        event_list_rv.setAdapter(adapter);
+            EventAdapter adapter = new EventAdapter(getActivity().getApplicationContext(), events, this);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+            event_list_rv.setLayoutManager(layoutManager);
+            event_list_rv.setAdapter(adapter);
+        }
     }
 
     public void onEventClick(int position) {

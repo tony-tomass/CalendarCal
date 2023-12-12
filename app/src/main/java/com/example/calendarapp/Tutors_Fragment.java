@@ -39,7 +39,7 @@ public class Tutors_Fragment extends Fragment {
 
         personList = new ArrayList<>();
         personList.add(new Person("Ryan Truong", "CSC Undergraduate", R.drawable.profile_base));
-        personList.add(new Person("Tony Nguyen", "CSC Undergraduate | Tutorin 6PM-8PM", R.drawable.tony_profile));
+        personList.add(new Person("Tony Nguyen", "CSC Undergraduate | Tutoring 6PM-8PM", R.drawable.tony_profile));
         personList.add(new Person("Esteban Parra Rodriguez", "Computer Science Professor", R.drawable.belmont_logo));
         personList.add(new Person("Dean Dingus", "Political Science | Tutoring 12AM-9PM", R.drawable.profile_ex_01));
         personList.add(new Person("Grammy Gertrude", "Culinary Genius | Tutoring 2PM-4PM", R.drawable.profile_ex_02));

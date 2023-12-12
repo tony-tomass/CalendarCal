@@ -38,11 +38,11 @@ public class Tutors_Fragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         personList = new ArrayList<>();
-        personList.add(new Person("Ryan Truong", "Computer Science Undergraduate", R.drawable.profile_base));
-        personList.add(new Person("Tony Nguyen", "Computer Science Undergraduate", R.drawable.tony_profile));
+        personList.add(new Person("Ryan Truong", "CSC Undergraduate", R.drawable.profile_base));
+        personList.add(new Person("Tony Nguyen", "CSC Undergraduate | Tutoring 6PM-8PM", R.drawable.tony_profile));
         personList.add(new Person("Esteban Parra Rodriguez", "Computer Science Professor", R.drawable.belmont_logo));
-        personList.add(new Person("Dean Dingus", "Political Science Graduate", R.drawable.profile_ex_01));
-        personList.add(new Person("Grammy Gertrude", "Culinary Genius", R.drawable.profile_ex_02));
+        personList.add(new Person("Dean Dingus", "Political Science | Tutoring 12AM-9PM", R.drawable.profile_ex_01));
+        personList.add(new Person("Grammy Gertrude", "Culinary Genius | Tutoring 2PM-4PM", R.drawable.profile_ex_02));
 
         adapter = new PersonAdapter(personList);
         recyclerView.setAdapter(adapter);

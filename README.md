@@ -45,7 +45,8 @@ Click [here]() to download the app as an .apk file
 - Many other things
 
 # Credits
-#### [@codeWithCal](https://github.com/codeWithCal/) for the basic framework of the Calendar view
+#### [@ryanctruong] for his work on the tutor and user pages of the app
+#### [@codeWithCal](https://github.com/codeWithCal/) for his basic framework of the Calendar view
 #### [@kizitonwose](https://github.com/kizitonwose/) for his custom CalendarView library, and the [users](https://github.com/kizitonwose/Calendar/issues/1) of it for design inspirations
 
 

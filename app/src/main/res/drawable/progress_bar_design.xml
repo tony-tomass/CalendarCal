@@ -15,6 +15,7 @@
             <shape android:shape="rectangle">
                 <corners android:radius="6dp"/>
                 <solid android:color="@color/theme_secondary_accent2"/>
+                <stroke android:width="2dp" android:color="@color/white"/>
             </shape>
         </scale>
     </item>

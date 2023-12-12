@@ -35,7 +35,7 @@ Click [here]() to download the app as an .apk file
 - Allows user to create account and profile
 - Would display user page (WIP)
 
-# Things to be fixed/implemented
+## Things to be fixed/implemented
 - Proper event deleting/completing
 - Proper progression tracking
 - Working User base
